@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontSize: 16,
     minHeight: 48,
-    backgroundColor: '#1C1C1E',
     borderRadius: 7,
     paddingLeft: 16,
-    paddingHorizontal: 14,
-    color: '#FFFFFF',
-    fontSize: 16,
     marginRight: 10,
+    color: "#FFFFFF",
+    paddingHorizontal: 14,
+    backgroundColor: "#1C1C1E",
   },
 });

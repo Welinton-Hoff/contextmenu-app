@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { useState } from "react";
+import { Text, View } from "react-native";
 
-import { Button } from '../../components/Button';
-import { Input } from '../../components/Input';
-import { Tags } from '../../components/Tags';
+import { Tags } from "../../components/Tags";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 
-import { styles } from './styles';
+import { styles } from "./styles";
 
 export function Home() {
+  const [newTag, setNewTag] = useState("");
   const [tags, setTags] = useState<string[]>([]);
-  const [newTag, setNewTag] = useState('');
 
   function handleAddTag() {
-    setTags(prevState => [...prevState, newTag]);
-    setNewTag('');
+    setNewTag("");
+    setTags((prevState) => [...prevState, newTag]);
   }
 
   function handleRemoveTag(tagDeleted: string) {
-    setTags(prevState => prevState.filter(tag => tag !== tagDeleted));
+    setTags((prevState) => prevState.filter((tag) => tag !== tagDeleted));
   }
 
   return (

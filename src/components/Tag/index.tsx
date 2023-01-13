@@ -1,6 +1,9 @@
-import { Text, TouchableOpacity } from 'react-native';
+import { Text } from "react-native";
+import { HoldItem } from "react-native-hold-menu";
+import Animated, { FadeIn, FadeOut, Layout } from "react-native-reanimated";
 
-import { styles } from './styles';
+import { styles } from "./styles";
+import { MenuItemProps } from "react-native-hold-menu/lib/typescript/components/menu/types";
 
 type Props = {
   title: string;
@@ -8,9 +11,26 @@ type Props = {
 };
 
 export function Tag({ title, onRemove }: Props) {
+  const holdItemConfig: MenuItemProps[] = [
+    { text: title, isTitle: true },
+    {
+      icon: "trash",
+      text: "Apagar",
+      isDestructive: true,
+      onPress: () => onRemove(),
+    },
+  ];
+
   return (
-    <TouchableOpacity  style={styles.container} onPress={onRemove}>
-      <Text style={styles.title}>#{title}</Text>
-    </TouchableOpacity>
+    <Animated.View
+      layout={Layout}
+      entering={FadeIn}
+      exiting={FadeOut}
+      style={styles.container}
+    >
+      <HoldItem items={holdItemConfig}>
+        <Text style={styles.title}>#{title}</Text>
+      </HoldItem>
+    </Animated.View>
   );
 }

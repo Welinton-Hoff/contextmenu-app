@@ -1,7 +1,7 @@
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-import { styles } from './styles';
+import { styles } from "./styles";
 
 export function Button({ ...rest }: TouchableOpacityProps) {
   return (

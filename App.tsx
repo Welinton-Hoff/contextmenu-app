@@ -1,12 +1,19 @@
-import { StatusBar } from 'react-native';
+import "react-native-gesture-handler";
+import { StatusBar } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { HoldMenuProvider } from "react-native-hold-menu";
 
-import { Home } from './src/screens/Home';
+import { Home } from "./src/screens/Home";
 
 export default function App() {
   return (
-    <>
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+    <HoldMenuProvider theme="dark" iconComponent={Feather}>
+      <StatusBar
+        translucent
+        barStyle="light-content"
+        backgroundColor="transparent"
+      />
       <Home />
-    </>
+    </HoldMenuProvider>
   );
 }
